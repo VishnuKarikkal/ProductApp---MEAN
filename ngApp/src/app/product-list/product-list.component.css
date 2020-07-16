@@ -1,0 +1,36 @@
+table
+{
+    font-family: 'Baloo 2', cursive;
+    /* border: 1px solid gray; */
+    color: deeppink;
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    width: max-content;
+    /* width: 50vw; */
+}
+th
+{
+    font-family: 'Cairo', sans-serif;
+    color: coral;
+    text-align: center;
+}
+td
+{
+    text-align: center;
+}
+.btn
+{
+    margin-top: 5px;
+    color: white;
+}
+.btn-warning:hover
+{
+    background-color: blue;
+}
+.btn-danger:hover
+{
+    background-color: yellowgreen;
+    color: red;
+}
+

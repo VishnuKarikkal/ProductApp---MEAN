@@ -1,0 +1,29 @@
+form
+{
+    font-family: 'Baloo 2', cursive;
+
+    border: 1px solid gray;
+    color: violet;
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    width: 50vw;
+}
+label
+{
+    color: violet;
+}
+input
+{
+    color: deeppink;
+}
+button
+{
+    /* margin-top: 10px; */
+    margin-bottom: 10px;
+    
+}
+button:hover
+{
+    background-color: blueviolet;
+}

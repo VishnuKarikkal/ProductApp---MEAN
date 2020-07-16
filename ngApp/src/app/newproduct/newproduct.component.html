@@ -1,0 +1,132 @@
+<div class="card">
+    <form (ngSubmit)="addProduct()" [formGroup]="newProductForm">
+        <div class="card-header">
+           <h1 style="text-align: center;color: blue;">{{title}}</h1> 
+        </div> 
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <td>
+                            <label>Product ID</label>
+                        </td>
+                        <td>
+                              <input type="text" name="p_id" [(ngModel)]="productItem['productId']" 
+                              placeholder="product id" value="product id" required
+                              formControlName="p_id" 
+                            [class.is-invalid]="newProductForm.get('p_id').invalid && newProductForm.get('p_id').touched">
+                            <div *ngIf="newProductForm.get('p_id').invalid && newProductForm.get('p_id').touched ">
+                                <small *ngIf="newProductForm.get('p_id').errors?.required" class="text-danger">Enter Product ID!</small>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Product Name</label>
+                        </td>
+                        <td>
+                            <input type="text" name="p_name" [(ngModel)]="productItem['productName']" 
+                            placeholder="product name" value="product name" required
+                            formControlName="p_name" 
+                            [class.is-invalid]="newProductForm.get('p_name').invalid && newProductForm.get('p_name').touched">
+                            <div *ngIf="newProductForm.get('p_name').invalid && newProductForm.get('p_name').touched ">
+                                <small *ngIf="newProductForm.get('p_name').errors?.required" class="text-danger">Enter Product Name!</small>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Product Code</label>
+                        </td>
+                        <td>
+                            <input type="text" name="p_code" [(ngModel)]="productItem['productCode']" 
+                            placeholder="product code" value="product code" required
+                            formControlName="p_code" 
+                            [class.is-invalid]="newProductForm.get('p_code').invalid && newProductForm.get('p_code').touched">
+                            <div *ngIf="newProductForm.get('p_code').invalid && newProductForm.get('p_code').touched ">
+                                <small *ngIf="newProductForm.get('p_code').errors?.required" class="text-danger">Enter Product Code!</small>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Release Date</label>
+                        </td>
+                        <td>
+                            <input type="date" name="p_date" [(ngModel)]="productItem['releaseDate']" 
+                            placeholder="product date" value="product date" required
+                            formControlName="p_date" 
+                            [class.is-invalid]="newProductForm.get('p_date').invalid && newProductForm.get('p_date').touched">
+                            <div *ngIf="newProductForm.get('p_date').invalid && newProductForm.get('p_date').touched ">
+                                <small *ngIf="newProductForm.get('p_date').errors?.required" class="text-danger">Select Product Release Date!</small>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Product Description</label>
+                        </td>
+                        <td>
+                            <input type="text" name="p_des" [(ngModel)]="productItem['description']" 
+                            placeholder="product description" value="product description" required
+                            formControlName="p_des" 
+                            [class.is-invalid]="newProductForm.get('p_des').invalid && newProductForm.get('p_des').touched">
+                            <div *ngIf="newProductForm.get('p_des').invalid && newProductForm.get('p_des').touched ">
+                                <small *ngIf="newProductForm.get('p_des').errors?.required" class="text-danger">Enter Product Description!</small>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Product Price</label>
+                        </td>
+                        <td>
+                            <input type="number" name="p_price" [(ngModel)]="productItem['price']" 
+                            placeholder="product price" value="product price" required
+                            formControlName="p_price" 
+                            [class.is-invalid]="newProductForm.get('p_price').invalid && newProductForm.get('p_price').touched">
+                            <div *ngIf="newProductForm.get('p_price').invalid && newProductForm.get('p_price').touched ">
+                                <small *ngIf="newProductForm.get('p_price').errors?.required" class="text-danger">Enter Product Price!</small>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Product Rating</label>
+                        </td>
+                        <td>
+                            <input type="number" name="p_rating" [(ngModel)]="productItem['starRating']" 
+                            placeholder="product rating" value="product rating" required
+                            formControlName="p_rating" 
+                            [class.is-invalid]="newProductForm.get('p_rating').invalid && newProductForm.get('p_rating').touched">
+                            <div *ngIf="newProductForm.get('p_rating').invalid && newProductForm.get('p_rating').touched ">
+                                <small *ngIf="newProductForm.get('p_rating').errors?.pattern" class="text-danger">Rate within: 1-5! and make sure No preceding ZEROES and SPACES are there</small><br>
+                                <small *ngIf="newProductForm.get('p_rating').errors?.required" class="text-danger">Enter Product Rating!</small>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Product Image</label>
+                        </td>
+                        <td>
+                            <input type="text" name="p_img" [(ngModel)]="productItem['imgUrl']" value="product img" required
+                            placeholder="product img" formControlName="p_img" 
+                            [class.is-invalid]="newProductForm.get('p_img').invalid && newProductForm.get('p_img').touched">
+                            <div *ngIf="newProductForm.get('p_img').invalid && newProductForm.get('p_img').touched ">
+                                <small *ngIf="newProductForm.get('p_img').errors?.required" class="text-danger">Image URL is required!</small>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                
+            </div>
+            
+        </div>
+       <div class="container" style="width: fit-content;">
+        <div style="margin: 0 auto;">
+            <button class="btn btn-primary" type="submit" [disabled]="newProductForm.invalid">Add To the List!</button>
+        </div>
+       </div>
+    </form>
+</div>

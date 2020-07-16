@@ -1,0 +1,67 @@
+<div class="container" style="border:1px solid grey;border-radius: 15px;margin-top: 10px;">
+    <h2 style="text-align: center;color: blue;">Signup</h2>
+
+    <form (ngSubmit)="signup()" [formGroup]="signupform">
+        <div class="container" style="margin: 0 auto;text-align: center;">
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="">Name:</label><br>
+                    <input type="text" formControlName="name" [(ngModel)]="userData.name" 
+                            [class.is-invalid]="signupform.get('name').invalid && signupform.get('name').touched"
+                    name="name" id="name" required>
+                    <div *ngIf="signupform.get('name').invalid && signupform.get('name').touched ">
+                        <small *ngIf="signupform.get('name').errors?.pattern" class="text-danger">numbers and special characters are not allowed</small>
+                    </div>
+                </div>
+                
+            </div>
+           
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="">Email:</label><br>
+                    <input type="email" formControlName="email" [(ngModel)]="userData.email" 
+                            [class.is-invalid]="signupform.get('email').invalid && signupform.get('email').touched"
+                    name="email" id="email" required>
+                    <div *ngIf="signupform.get('email').invalid && signupform.get('email').touched ">
+                        <small *ngIf="signupform.get('email').errors?.pattern" class="text-danger">Enter a Valid Email</small>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="">Password:</label><br>
+                    <input type="password" formControlName="password" [(ngModel)]="userData.password" 
+                            [class.is-invalid]="signupform.get('password').invalid && signupform.get('password').touched"
+                    name="password" id="password" required>
+                    
+                    <div *ngIf="signupform.get('email').invalid && signupform.get('email').touched ">
+                        <small *ngIf="signupform.get('password').errors?.minlength" class="text-danger">Minimum Length Is 8 Characters</small><br>
+                        <small *ngIf="signupform.get('password').errors?.pattern" class="text-danger">Password Contains numbers,special characters(!@#$%) and both uppercase and lowercase letters</small>
+                    </div>
+                </div>          
+            </div>
+            <div style="margin: 0 auto;">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="custom-radio">
+                            <input class="form-check-input" type="radio" name="userType" id="radioAdmin" value="admin" checked> 
+                            <label class="form-check-label" for="radioAdmin">Admin</label>
+                        </div> 
+                    </div>
+                        <div class="row">
+                            <div class="custom-radio">
+                                <input class="form-check-input" type="radio" name="userType" id="radioNormal" value="normal" checked>
+                                <label class="form-check-label" for="radioNormal">Normal User</label>
+                                </div>
+                        </div> 
+                </div>
+            </div> 
+            <div class="row">
+                <div class="col-md-12">
+                   <button class="btn btn-warning" [disabled]="signupform.invalid" type="submit">Submit</button>
+                </div>          
+            </div>
+        </div>
+    </form>
+</div>
